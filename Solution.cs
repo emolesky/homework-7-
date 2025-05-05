@@ -1,39 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Robot
+namespace Difference
 {
     public class Solution
     {
-        public bool JudgeCircle(string moves)
+        public static char FindTheDifference(string s, string t)
         {
-            int x = 0;
-            int y = 0;
-
-            foreach( char move in moves)
+            char result = '\0';
+            foreach(char c in s)
             {
-                switch( move)
-                {
-                    case 'R':
-                        x++;
-                        break;
-                    case 'L':
-                        x--;
-                        break;
-                    case 'U':
-                        y++;
-                        break;
-                    case 'D':
-                        y--;
-                        break;
-
-
-                }
+                result ^= c; 
             }
-            return x == 0 && y == 0;   
+            foreach(char c in t)
+            {
+                result ^= c;
+            }
+            return result;
         }
     }
 }

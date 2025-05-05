@@ -1,15 +1,21 @@
-﻿namespace Robot
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace Difference
 {
-    public class Program
+    internal class Program
     {
         public static void Main(string[] args)
         {
+
+            string s = "abcd";
+            string t = "abcde";
             Solution aSolution = new Solution();
+        
 
+            char result = aSolution.FindTheDifference(s, t);
 
-            string moves = "UDLR";
-            bool result = aSolution.JudgeCircle(moves);
-            Console.WriteLine(result);   
+            Console.WriteLine(result);
+           
         }
     }
 }
