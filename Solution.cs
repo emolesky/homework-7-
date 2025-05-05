@@ -4,24 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Merge
+namespace UniqueChar
 {
     public class Solution
     {
-        public void Merge(int[] nums1, int m, int[] nums2, int n)
+        public int FirstUniqChar(string s)
         {
-            int p1 = m - 1;
-            int p2 = n - 1;
-            int p3 = m + n - 1;
-            int i = p3;
+            Dictionary<char, int> charCount = new Dictionary<char, int>();
 
-            while (p2 >= 0)
+            foreach (char c in s)
             {
-                if (p1 >= 0 && nums1[p1] > nums2[p2])
-                    nums1[i--] = nums1[p1--];
+                if (charCount.ContainsKey(c))
+                    charCount[c]++;
                 else
-                    nums1[i--] = nums2[p2--];
+                    charCount[c] = 1;
             }
+
+            for (int i =0; i < s.Length; i++)
+            {
+                if (charCount[s[i]] == 1)
+                    return i;
+            }
+            return -1;
         }
     }
 }

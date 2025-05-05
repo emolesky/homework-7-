@@ -1,18 +1,27 @@
-﻿namespace Merge
+﻿namespace UniqueChar
 {
-    public class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            int[] nums1 = [0];
-            int m = 0;
-            int[] nums2 = [1];
-            int n = 1;
+            Console.WriteLine("Enter a string:");
+            string input = Console.ReadLine();
 
-            Solution solution = new Solution();
-            solution.Merge(nums1, m, nums2, n);
+            Solution aSolution = new Solution();
+            int index = aSolution.FirstUniqChar(input);
 
-            Console.WriteLine("Merged array: " + string.Join(", ", nums1));
+            if (index != -1)
+            {
+                Console.WriteLine($"The first non- repeating character is at index: {index}");
+
+            }
+            else
+            {
+                Console.WriteLine("Ther is no non- repeating character in the string.");
+            }
         }
     }
 }
+
+
+
