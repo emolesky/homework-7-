@@ -4,28 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UniqueChar
+namespace NumberOfSegments
 {
     public class Solution
     {
-        public int FirstUniqChar(string s)
+        public int CountSegments(string s)
         {
-            Dictionary<char, int> charCount = new Dictionary<char, int>();
+            if(string.IsNullOrWhiteSpace(s))
+                return 0;
 
-            foreach (char c in s)
-            {
-                if (charCount.ContainsKey(c))
-                    charCount[c]++;
-                else
-                    charCount[c] = 1;
-            }
 
-            for (int i =0; i < s.Length; i++)
-            {
-                if (charCount[s[i]] == 1)
-                    return i;
-            }
-            return -1;
+            string[] segments = s.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+            return segments.Length;
         }
     }
 }
