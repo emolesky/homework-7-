@@ -1,15 +1,15 @@
-﻿namespace ballons
+﻿namespace Robot
 {
     public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            string text = "loonbalxballpoon";
+            Solution aSolution = new Solution();
 
-            Solution solution = new Solution();
-            int result = solution.MaxNumberOfBaloons(text);
 
-            Console.WriteLine($"{result}");
+            string moves = "UDLR";
+            bool result = aSolution.JudgeCircle(moves);
+            Console.WriteLine(result);   
         }
     }
 }
