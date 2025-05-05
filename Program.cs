@@ -1,21 +1,18 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace Difference
+﻿namespace Merge
 {
-    internal class Program
+    public class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
+            int[] nums1 = [0];
+            int m = 0;
+            int[] nums2 = [1];
+            int n = 1;
 
-            string s = "abcd";
-            string t = "abcde";
-            Solution aSolution = new Solution();
-        
+            Solution solution = new Solution();
+            solution.Merge(nums1, m, nums2, n);
 
-            char result = aSolution.FindTheDifference(s, t);
-
-            Console.WriteLine(result);
-           
+            Console.WriteLine("Merged array: " + string.Join(", ", nums1));
         }
     }
 }

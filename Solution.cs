@@ -1,26 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Difference
+namespace Merge
 {
     public class Solution
     {
-        public static char FindTheDifference(string s, string t)
+        public void Merge(int[] nums1, int m, int[] nums2, int n)
         {
-            char result = '\0';
-            foreach(char c in s)
+            int p1 = m - 1;
+            int p2 = n - 1;
+            int p3 = m + n - 1;
+            int i = p3;
+
+            while (p2 >= 0)
             {
-                result ^= c; 
+                if (p1 >= 0 && nums1[p1] > nums2[p2])
+                    nums1[i--] = nums1[p1--];
+                else
+                    nums1[i--] = nums2[p2--];
             }
-            foreach(char c in t)
-            {
-                result ^= c;
-            }
-            return result;
         }
     }
 }
